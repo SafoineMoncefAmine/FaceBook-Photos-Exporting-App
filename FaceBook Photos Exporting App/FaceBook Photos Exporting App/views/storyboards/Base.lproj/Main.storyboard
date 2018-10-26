@@ -88,14 +88,72 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VJc-Zn-I1f"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Albums" id="iNd-kr-zYu"/>
+                    <navigationItem key="navigationItem" title="Albums" id="iNd-kr-zYu">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ZC9-Qz-tai">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7oa-cd-pUd">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="9Ti-2f-xIi" eventType="touchUpInside" id="wG7-vD-1AP"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="collectionView" destination="CBC-xK-YIg" id="eC7-Y5-bQn"/>
+                        <outlet property="collectionView" destination="CBC-xK-YIg" id="Exn-n2-Sph"/>
+                        <segue destination="KKK-ho-ucm" kind="show" identifier="showAlbumPhotos" id="ovk-hu-wuw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvS-DY-oog" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1996" y="25.637181409295355"/>
+        </scene>
+        <!--Photos View Controller-->
+        <scene sceneID="TkK-lk-Nkh">
+            <objects>
+                <viewController id="KKK-ho-ucm" customClass="PhotosViewController" customModule="FaceBook_Photos_Exporting_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rgq-xV-le0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="drt-6Q-yeh">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XlT-Fa-oAm">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="AT7-lP-8N3">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="drt-6Q-yeh" firstAttribute="leading" secondItem="vhd-la-mH3" secondAttribute="leading" id="PPw-x3-qwR"/>
+                            <constraint firstItem="drt-6Q-yeh" firstAttribute="top" secondItem="vhd-la-mH3" secondAttribute="top" id="SYH-5n-cLv"/>
+                            <constraint firstItem="vhd-la-mH3" firstAttribute="bottom" secondItem="drt-6Q-yeh" secondAttribute="bottom" id="hdf-0y-jzx"/>
+                            <constraint firstItem="vhd-la-mH3" firstAttribute="trailing" secondItem="drt-6Q-yeh" secondAttribute="trailing" id="tWx-5b-eRv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vhd-la-mH3"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="drt-6Q-yeh" id="bFc-0J-lL2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1bO-Es-BHl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2910" y="26"/>
         </scene>
         <!--Albums-->
         <scene sceneID="PJo-bU-s8b">

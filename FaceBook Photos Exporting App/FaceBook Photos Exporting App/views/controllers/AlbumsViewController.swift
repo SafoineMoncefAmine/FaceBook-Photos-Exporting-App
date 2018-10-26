@@ -11,8 +11,11 @@ import FacebookCore
 import FBSDKLoginKit
 
 class AlbumsViewController: UIViewController {
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var albums : [Album] = []
+    var selectedAlbumIndex = 0
     override func viewDidLoad() {
         configure()
         getMyAlbums()
@@ -22,7 +25,6 @@ class AlbumsViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: "AlbumCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlbumCollectionViewCell")
-        
         let width = (view.frame.size.width - 10) / 2
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
@@ -65,6 +67,16 @@ class AlbumsViewController: UIViewController {
         hideSpinner()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAlbumPhotos" {
+            let vc = segue.destination as! PhotosViewController
+            vc.currentAlbum = self.albums[selectedAlbumIndex]
+        }
+    }
+    
+    
+    
+    
 }
 
 extension AlbumsViewController : UICollectionViewDelegate , UICollectionViewDataSource {
@@ -81,7 +93,8 @@ extension AlbumsViewController : UICollectionViewDelegate , UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        self.selectedAlbumIndex = indexPath.row
+        performSegue(withIdentifier: "showAlbumPhotos", sender: self)
     }
     
 }
