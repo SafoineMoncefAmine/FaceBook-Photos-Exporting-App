@@ -10,10 +10,11 @@ import UIKit
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
-
+    @IBOutlet weak var IBFbLoginButton: FBSDKLoginButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        IBFbLoginButton.readPermissions = ["public_profile", "email"]
     }
     
     override func viewWillAppear(_ animated: Bool) {

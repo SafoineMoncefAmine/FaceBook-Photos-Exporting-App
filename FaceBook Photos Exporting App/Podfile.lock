@@ -24,12 +24,16 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.37.0):
     - FBSDKCoreKit (~> 4.37.0)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - SDWebImage (~> 4.0)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -40,8 +44,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: fe5f3474499a81963e11e3f3a5c753d0a95ca2b4
   FBSDKLoginKit: 2f7249686d1e30ce8a5ef5400eedf50b3e3df332
   FBSDKShareKit: 52e0083222c38e930eb6878007478326599195c3
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 1ccb1fe342ba1b37242f97a5a40234830f50c525
+PODFILE CHECKSUM: dcdd7803fe385512c83ffd79e688e1f7af0d803c
 
 COCOAPODS: 1.4.0

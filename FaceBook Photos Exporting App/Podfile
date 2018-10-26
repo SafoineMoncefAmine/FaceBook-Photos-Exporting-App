@@ -8,5 +8,6 @@ target 'FaceBook Photos Exporting App' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
   pod 'SVProgressHUD'
+  pod 'SDWebImage', '~> 4.0'
 
 end
