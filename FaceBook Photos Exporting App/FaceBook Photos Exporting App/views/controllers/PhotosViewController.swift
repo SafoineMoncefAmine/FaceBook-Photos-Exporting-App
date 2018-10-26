@@ -13,7 +13,7 @@ class PhotosViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var currentAlbum : Album?
+    var selectedAlbum : Album?
     var photos : [Photo] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,7 @@ class PhotosViewController: UIViewController {
     func configure() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.title = selectedAlbum?.name
         self.collectionView.register(UINib(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         let width = (view.frame.size.width - 10) / 2
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
@@ -32,7 +33,7 @@ class PhotosViewController: UIViewController {
     
     func getPhotos(){
         let connection = GraphRequestConnection()
-        connection.add(GraphRequest(graphPath: currentAlbum!.id+"/photos?fields=images")) { httpResponse, result in
+        connection.add(GraphRequest(graphPath: selectedAlbum!.id+"/photos?fields=images")) { httpResponse, result in
             switch result {
             case .success(let response):
                 self.parsePhotos(response: response)

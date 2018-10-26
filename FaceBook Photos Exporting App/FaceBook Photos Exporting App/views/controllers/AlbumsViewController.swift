@@ -70,13 +70,18 @@ class AlbumsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAlbumPhotos" {
             let vc = segue.destination as! PhotosViewController
-            vc.currentAlbum = self.albums[selectedAlbumIndex]
+            vc.selectedAlbum = self.albums[selectedAlbumIndex]
         }
     }
     
-    
-    
-    
+    @IBAction func logout(_ sender: Any) {
+        self.showSpinner()
+        UIView.animate(withDuration: 1) {
+            self.dismiss(animated: true, completion: nil)
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut()
+        }
+    }
 }
 
 extension AlbumsViewController : UICollectionViewDelegate , UICollectionViewDataSource {
