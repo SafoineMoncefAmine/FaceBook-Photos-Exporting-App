@@ -9,8 +9,8 @@ Swift 4
 
 # 3rd partie libraries : 
 
-Facebook SDK :  he SDK provides support for Login with Facebook authentication, reading and writing to Facebook's APIs
-SDWebImage : Asynchronous image downloader with cache support as a UIImageView category
-SVProgressHUD :  A clean and lightweight progress HUD for your iOS 
+* Facebook SDK :  he SDK provides support for Login with Facebook authentication, reading and writing to Facebook's APIs
+* SDWebImage : Asynchronous image downloader with cache support as a UIImageView category
+* SVProgressHUD :  A clean and lightweight progress HUD for your iOS 
 
 
