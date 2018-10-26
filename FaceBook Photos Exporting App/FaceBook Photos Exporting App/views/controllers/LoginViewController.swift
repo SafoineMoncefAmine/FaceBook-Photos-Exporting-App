@@ -20,11 +20,13 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.showSpinner()
         if FBSDKAccessToken.currentAccessTokenIsActive() {
+            IBFbLoginButton.alpha = 0
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.performSegue(withIdentifier: "showAlbums", sender: self)
                 self.hideSpinner()
             })
         }else {
+            IBFbLoginButton.alpha = 1
             UIView.animate(withDuration: 1) {
                 self.hideSpinner()
             }
