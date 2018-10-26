@@ -7,5 +7,6 @@ target 'FaceBook Photos Exporting App' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'SVProgressHUD'
 
 end
