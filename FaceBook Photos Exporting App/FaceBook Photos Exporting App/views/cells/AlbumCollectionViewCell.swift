@@ -22,9 +22,4 @@ class AlbumCollectionViewCell: UICollectionViewCell {
         self.albumCoverImage.sd_setImage(with: URL(string: album.coverUrl), completed: nil)
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
 }

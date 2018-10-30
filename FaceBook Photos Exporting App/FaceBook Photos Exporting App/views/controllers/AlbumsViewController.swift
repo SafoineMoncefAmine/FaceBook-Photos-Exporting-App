@@ -25,9 +25,11 @@ class AlbumsViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: "AlbumCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AlbumCollectionViewCell")
-        let width = (view.frame.size.width - 10) / 2
+        let width = (self.collectionView.frame.size.width - 20) / 2
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: 5)
+        layout.minimumLineSpacing = 2
     }
     
     func getMyAlbums(){
@@ -84,7 +86,7 @@ class AlbumsViewController: UIViewController {
     }
 }
 
-extension AlbumsViewController : UICollectionViewDelegate , UICollectionViewDataSource {
+extension AlbumsViewController : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return albums.count
